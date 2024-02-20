@@ -6,11 +6,13 @@ import TodoList from "./Components/List/TodoList";
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const handleAddTodo = (text) => {
-    //yeni bir todo oluşturup todos state'ine ekleme yapılır.
+  const handleAddTodo = (formData) => {
+    // Yeni bir todo oluşturup todos state'ine ekleme yapılır.
     const newTodo = {
       id: Math.random(),
-      text: text,
+      text: formData.text,
+      startDatetime: formData.startDatetime,
+      endDatetime: formData.endDatetime,
       completed: false,
     };
     setTodos([...todos, newTodo]);

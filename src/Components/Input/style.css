@@ -1,25 +1,75 @@
 .todo-form {
-    margin-top: 20px;
-    display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: rgb(230, 199, 211, 0.7);
+  border-radius: 5px;
+}
+
+.todo-input {
+  width: calc(
+    100% - 18px
+  ); /* Buton genişliğini göz önünde bulundurarak hesaplama yapar */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px; /* Yazı boyutunu artırır */
+}
+
+.datetime-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* İçerikleri dikey eksende hizalar */
+  margin-bottom: 10px;
+}
+
+.datetime-label {
+  font-weight: bold;
+}
+
+.datetime-inputs {
+  display: flex;
+  align-items: center;
+}
+
+.datetime-input {
+  padding: 8px;
+  margin-right: 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-btn {
+  background-color: #5c57b4;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Küçük ekranlar için responsivlik */
+@media (max-width: 600px) {
+  .todo-input,
+  .datetime-input {
+    width: 100%; /* Küçük ekranlarda giriş alanları tam genişlikte olacak */
   }
 
-  .todo-input {
-    flex-grow: 1;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  .datetime-container {
+    flex-direction: column; /* Küçük ekranlarda dikey yönde hizalama */
   }
-  .add-btn {
-    background-color: #008cba;
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    margin-left: 5px;
-    cursor: pointer;
+
+  .datetime-label {
+    margin-bottom: 5px; /* Dikey hizalamada biraz boşluk bırakır */
   }
-  
-  .add-btn:hover {
-    background-color: #005f73;
-  }
+}

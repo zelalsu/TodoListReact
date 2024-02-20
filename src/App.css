@@ -1,8 +1,8 @@
 /* App.css */
 
 .app {
-  max-width: 400px;
-  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
   background-color: #f4f4f4;
   border-radius: 8px;
