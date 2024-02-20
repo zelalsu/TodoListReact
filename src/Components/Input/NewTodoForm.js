@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./style.css";
 
 function NewTodoForm({ onAdd }) {
+  // Form verilerini tutmak için state kullanılıyor
   const [formData, setFormData] = useState({
     text: "",
     startDate: "",
@@ -12,18 +13,23 @@ function NewTodoForm({ onAdd }) {
 
   const { text, startDate, startTime, endDate, endTime } = formData;
 
+  // Input değişikliklerini takip eden fonksiyon
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  console.log(formData);
+
+  // Form gönderimini işleyen fonksiyon
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Formun eksik alanlarını kontrol etme
     if (!text.trim() || !startDate || !startTime || !endDate || !endTime) {
       alert("Lütfen tüm alanları doldurun");
       return;
     }
-    const startDatetime = ` ${startTime}  ,  ${startDate} `;
-    const endDatetime = `${endTime}  ,  ${endDate} `;
+    // Başlangıç ve bitiş tarihlerini ve saatlerini birleştirme
+    const startDatetime = `${startTime}  ,  ${startDate}`;
+    const endDatetime = `${endTime}  ,  ${endDate}`;
+    // Ana bileşene yeni görevi ileterek formu sıfırlama
     onAdd({ text, startDatetime, endDatetime });
     setFormData({
       text: "",
@@ -36,6 +42,7 @@ function NewTodoForm({ onAdd }) {
 
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
+      {/* Yapılacak metnini girmek için metin alanı */}
       <textarea
         name="text"
         value={text}
@@ -43,6 +50,7 @@ function NewTodoForm({ onAdd }) {
         placeholder="Yeni yapılacak ekle"
         className="todo-input"
       />
+      {/* Başlangıç ve bitiş tarih-saat giriş alanları */}
       <div className="datetime-container">
         <div className="datetime-label">Başlangıç:</div>
         <div className="datetime-inputs">
@@ -81,6 +89,7 @@ function NewTodoForm({ onAdd }) {
           />
         </div>
       </div>
+      {/* Gönderme butonu */}
       <button type="submit" className="add-btn">
         Ekle
       </button>

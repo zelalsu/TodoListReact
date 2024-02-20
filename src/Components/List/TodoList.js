@@ -2,8 +2,6 @@ import React from "react";
 import "./style.css"; // Stil dosyası
 
 function TodoList({ todos, onToggle, onDelete }) {
-  console.log(todos);
-
   return (
     <div className="todo-list">
       {todos.map((todo) => (
